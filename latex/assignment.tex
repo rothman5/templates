@@ -1,0 +1,85 @@
+% Set student and course information
+\newcommand{\firstname}{FIRST}
+\newcommand{\lastname}{LAST}
+\newcommand{\ccid}{CCID}
+\newcommand{\ssid}{SSID}
+\newcommand{\assignment}{ACTIVITY \#N}
+\newcommand{\coursecode}{XXX NNN}
+
+% Define page type and font size
+\documentclass[a4paper, 12pt, twoside]{article}
+
+% Include packages
+\usepackage[hmargin=0.5in, vmargin=0.75in]{geometry}
+\usepackage{fancyhdr}       % For custom headers
+\usepackage[utf8]{inputenc} % For utf-8 encoding
+\usepackage{listings}       % For custom code listings
+\usepackage{xcolor}         % For custom colors
+\usepackage{titlesec}       % For custom header sections
+\usepackage{graphicx}       % For images
+\usepackage{caption}        % For figure captions
+\usepackage{subcaption}     % For subfigures
+\usepackage{mhchem}         % For chemical equations
+\usepackage{circuitikz}     % For electrical circuits
+
+% Set page header information
+\lhead{\ccid \\ \ssid}
+\chead{\coursecode \\ \assignment}
+\rhead{\lastname, \firstname \\ \today}
+
+% Set page header style
+\thispagestyle{fancy}
+% \setlength{\parindent}{0pt}
+\setlength{\headheight}{32pt}
+\setlength{\headsep}{12pt}
+
+% Remove insane spacing between sections and subsections
+\titlespacing{\section}{0pt}{5pt}{2pt}
+\titlespacing{\subsection}{0pt}{5pt}{2pt}
+
+% Define custom formatting for sections
+\titleformat{\section}
+{\large\bfseries} % Format for the title (font size and bold)
+{}                % Label (empty for no number)
+{0pt}             % Space between label and title
+{\hspace{0in}}    % Indentation (customize as needed)
+
+% Define custom formatting for subsections
+\titleformat{\subsection}
+{\small\bfseries\color{blue}} % Format for the title (font size and italic)
+{}                            % Label (empty for no number)
+{0pt}                         % Space between label and title
+{\hspace{0.25in}}             % Indentation (customize as needed)
+
+% Define MATLAB settings for listings
+% Example usage of the listing style
+% \lstinputlisting[language=matlab, style=code]{q1.m}
+% or
+% \begin{lstlisting}[language=matlab, style=code]
+%   code goes here
+% \end{lstlisting}
+\lstdefinestyle{code}
+{
+    backgroundcolor=\color{gray!5},
+    basicstyle=\ttfamily\small,                   % Code font and size
+    commentstyle=\color{green!60!black},          % Comments in green
+    stringstyle=\color{orange},                   % Strings in orange
+    keywordstyle=\color{blue},                    % Keywords in blue
+    numberstyle=\ttfamily\scriptsize\color{gray}, % Style for line numbers
+    numbers=left,                                 % Enable line numbers on the left
+    numbersep=1.5em,                              % Space between line numbers and code
+    xleftmargin=0.5in,
+    xrightmargin=0.5in,
+    framexleftmargin=1.75em,                      % Add margin inside the frame for numbers
+    framexrightmargin=0.5em,                      % Optional: Adjust right margin
+    frameshape={RYR}{Y}{Y}{RYR},                  % Set the frame shape to have rounded corners
+    tabsize=2,
+    breaklines=true,                              % Enable line wrapping
+    showstringspaces=false,
+    captionpos=b
+}
+
+% Set page content
+\begin{document}
+\include{solution.tex}
+\end{document}
